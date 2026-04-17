@@ -1,0 +1,46 @@
+# Environment
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# Node
+node_modules/
+.next/
+out/
+release/
+*.dmg
+*.exe
+
+# Generated outputs
+output/
+outputs/
+*.mp4
+*.mp3
+*.wav
+*.png
+*.jpg
+*.jpeg
+!assets/**
+!docs/assets/**
+
+# Checkpoints (resumable state — user-specific)
+.checkpoints/
+checkpoint_*.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.cursor/
+.vscode/
+*.swp

@@ -1,0 +1,93 @@
+# pipeline: lipsync_presenter
+# OpenStudio original pipeline — combines Open Generative AI lip sync models
+# with OpenMontage's script/narration/composition infrastructure
+
+name: lipsync_presenter
+description: >
+  Portrait photo + script → polished talking head video with AI lip sync.
+  The first pipeline that combines Open Generative AI's 9 lip sync models
+  with OpenMontage's full production pipeline.
+
+version: "1.0"
+source: openstudio-original
+
+stages:
+  - name: research
+    skill: skills/pipelines/lipsync_presenter/research.md
+    tools: [web_search]
+    human_approval: false
+
+  - name: script
+    skill: skills/pipelines/lipsync_presenter/script.md
+    tools: [web_search]
+    human_approval: true
+    approval_prompt: "Review the script before generating audio and lip sync."
+
+  - name: narration
+    skill: skills/pipelines/lipsync_presenter/narration.md
+    tools: [tts_elevenlabs, tts_openai, tts_google, tts_piper]
+    human_approval: true
+    approval_prompt: "Listen to the narration. Approve to proceed with lip sync generation."
+
+  - name: lipsync
+    skill: skills/pipelines/lipsync_presenter/lipsync.md
+    tools: [bridge_lipsync]
+    human_approval: false
+    cost_estimate_required: true
+
+  - name: compose
+    skill: skills/pipelines/lipsync_presenter/compose.md
+    tools: [remotion_compose, ffmpeg_mux, subtitle_gen]
+    human_approval: false
+
+  - name: review
+    skill: skills/core/self_review.md
+    tools: [frame_sampler, transcriber]
+    human_approval: true
+    approval_prompt: "Review the final video. Approve to export."
+
+  - name: export
+    skill: skills/core/export.md
+    tools: [ffmpeg_encode]
+    human_approval: false
+
+inputs:
+  portrait_image:
+    type: file
+    description: Portrait photo of the presenter (JPG or PNG)
+    required: true
+  
+  topic:
+    type: string
+    description: What the presenter should talk about
+    required: true
+  
+  duration_seconds:
+    type: integer
+    default: 60
+    description: Target video length
+  
+  output_platform:
+    type: string
+    enum: [youtube, linkedin, tiktok, instagram_reels]
+    default: youtube
+  
+  lipsync_model:
+    type: string
+    default: auto
+    description: Lip sync model to use (auto = best available)
+
+outputs:
+  video_file:
+    format: mp4
+    description: Final lip-synced presenter video
+
+style_playbooks:
+  - clean-professional
+  - flat-motion-graphics
+
+platform_profiles:
+  youtube: "1920x1080"
+  linkedin: "1920x1080"
+  tiktok: "1080x1920"
+  instagram_reels: "1080x1920"
