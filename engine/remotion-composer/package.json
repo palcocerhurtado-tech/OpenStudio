@@ -1,0 +1,22 @@
+{
+  "name": "remotion-composer",
+  "version": "1.0.0",
+  "description": "OpenMontage Remotion-based video composition engine",
+  "scripts": {
+    "build": "remotion bundle",
+    "render:16x9": "remotion render src/index.ts ArchonPromo001 --output=../../output/archon_promo_001/archon_promo_001_16x9.mp4",
+    "render:9x16": "remotion render src/index.ts ArchonPromo001Vertical --output=../../output/archon_promo_001/archon_promo_001_9x16.mp4",
+    "preview": "remotion studio src/index.ts",
+    "still": "remotion still src/index.ts ArchonPromo001"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "remotion": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/react": "^18.2.0"
+  }
+}

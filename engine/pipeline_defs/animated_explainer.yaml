@@ -1,0 +1,159 @@
+# pipeline: animated_explainer
+# OpenStudio original pipeline — generates a fully-animated explainer video
+# using AI-generated imagery, TTS narration, background music, and Remotion composition.
+
+name: animated_explainer
+description: >
+  Script → AI scene images → TTS narration → background music → Remotion animated
+  composition with word-level subtitles → LinkedIn/Instagram export.
+  Ideal for brand explainers, product launches, and thought-leadership promos.
+
+version: "1.0"
+source: openstudio-original
+
+stages:
+  - name: research
+    skill: skills/pipelines/animated_explainer/research.md
+    tools: [web_search]
+    human_approval: false
+    checkpoint: true
+
+  - name: script
+    skill: skills/pipelines/animated_explainer/script.md
+    tools: [web_search]
+    human_approval: true
+    approval_prompt: >
+      Review the full script, scene breakdown, and timing before any assets are generated.
+      Approve to proceed to voice selection and asset generation.
+    checkpoint: true
+
+  - name: scene_plan
+    skill: skills/pipelines/animated_explainer/scene_plan.md
+    tools: []
+    human_approval: false
+    checkpoint: true
+
+  - name: assets
+    skill: skills/pipelines/animated_explainer/assets.md
+    tools: [bridge_generate_image, tts_elevenlabs, tts_openai, tts_piper, music_search_royalty_free]
+    human_approval: true
+    approval_prompt: >
+      Confirm the voice selection and review the asset generation plan + cost estimate
+      before any paid API calls are made.
+    cost_estimate_required: true
+    checkpoint: true
+
+  - name: compose
+    skill: skills/pipelines/animated_explainer/compose.md
+    tools: [remotion_compose, ffmpeg_mux, subtitle_gen]
+    human_approval: false
+    checkpoint: true
+
+  - name: review
+    skill: skills/core/self_review.md
+    tools: [frame_sampler, transcriber]
+    human_approval: true
+    approval_prompt: >
+      Review the rendered video (frame samples + transcript provided).
+      Approve to export final deliverables.
+    checkpoint: true
+
+  - name: export
+    skill: skills/core/export.md
+    tools: [ffmpeg_encode]
+    human_approval: false
+
+inputs:
+  brand_name:
+    type: string
+    required: true
+    description: Company or product name
+
+  brand_url:
+    type: string
+    required: false
+    description: Website URL for CTA
+
+  topic:
+    type: string
+    required: true
+    description: What the video should communicate
+
+  language:
+    type: string
+    default: "es"
+    description: BCP-47 language code (es = Spanish Castilian, en = English, etc.)
+
+  tone:
+    type: string
+    enum: [professional, energetic, storytelling, minimal]
+    default: professional
+
+  duration_seconds:
+    type: integer
+    default: 60
+    description: Target video length in seconds
+
+  output_platform:
+    type: string
+    enum: [linkedin, youtube, instagram_reels, tiktok]
+    default: linkedin
+
+  style:
+    type: string
+    enum: [clean-professional, flat-motion-graphics, dark-tech, warm-brand]
+    default: clean-professional
+
+  asset_model:
+    type: string
+    default: auto
+    description: Image generation model (auto = best available via asset router)
+
+  voice_id:
+    type: string
+    default: auto
+    description: TTS voice ID or "auto" for recommended selection
+
+  budget_cap_usd:
+    type: number
+    default: 3.00
+
+outputs:
+  video_16_9:
+    format: mp4
+    description: Final video in 16:9 (LinkedIn / YouTube)
+    resolution: "1920x1080"
+
+  video_9_16:
+    format: mp4
+    description: Vertical reformat in 9:16 (Instagram Reels / TikTok)
+    resolution: "1080x1920"
+
+  subtitles_srt:
+    format: srt
+    description: Word-level subtitle file
+
+  assets_manifest:
+    format: json
+    description: All generated assets with URLs, costs, and model metadata
+
+style_playbooks:
+  - clean-professional
+  - flat-motion-graphics
+  - dark-tech
+  - warm-brand
+
+platform_profiles:
+  linkedin: "1920x1080"
+  youtube: "1920x1080"
+  instagram_reels: "1080x1920"
+  tiktok: "1080x1920"
+
+scene_types:
+  - hero_title
+  - problem_statement
+  - opportunity_bridge
+  - brand_intro
+  - use_case
+  - trust_signal
+  - cta_close

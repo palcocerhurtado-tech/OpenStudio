@@ -1,0 +1,90 @@
+{
+  "job_id": "archon_promo_001",
+  "status": "PENDING_FINAL_APPROVAL",
+  "created_at": "2026-04-17T00:00:00Z",
+
+  "compositions": [
+    {
+      "id": "ArchonPromo001",
+      "label": "LinkedIn 16:9",
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "duration_frames": 1800,
+      "duration_seconds": 60,
+      "output_path": "output/archon_promo_001/archon_promo_001_16x9.mp4",
+      "render_command": "npx remotion render src/index.ts ArchonPromo001 --output=../../output/archon_promo_001/archon_promo_001_16x9.mp4 --codec=h264 --crf=18 --image-format=jpeg"
+    },
+    {
+      "id": "ArchonPromo001Vertical",
+      "label": "Instagram Reels 9:16",
+      "fps": 30,
+      "width": 1080,
+      "height": 1920,
+      "duration_frames": 1800,
+      "duration_seconds": 60,
+      "output_path": "output/archon_promo_001/archon_promo_001_9x16.mp4",
+      "render_command": "npx remotion render src/index.ts ArchonPromo001Vertical --output=../../output/archon_promo_001/archon_promo_001_9x16.mp4 --codec=h264 --crf=20 --image-format=jpeg"
+    }
+  ],
+
+  "assets": {
+    "images": {
+      "count": 8,
+      "model": "flux-kontext-pro",
+      "style": "cinematic",
+      "resolution": "2K",
+      "aspect_ratio": "16:9",
+      "output_dir": "output/archon_promo_001/images/"
+    },
+    "narration": {
+      "provider": "openai",
+      "voice": "onyx",
+      "language": "es",
+      "char_count": 757,
+      "output_path": "output/archon_promo_001/audio/narration.mp3",
+      "word_timestamps_path": "output/archon_promo_001/audio/word_timestamps.json"
+    },
+    "music": {
+      "source": "pixabay_royalty_free",
+      "tags": ["corporate", "ambient", "instrumental"],
+      "bpm_range": [60, 80],
+      "mix_level_db": -18,
+      "fade_out_start_s": 52,
+      "output_path": "output/archon_promo_001/audio/bg_music.mp3"
+    }
+  },
+
+  "post_processing": {
+    "subtitle_burn": true,
+    "subtitle_path": "output/archon_promo_001/subtitles/narration.srt",
+    "subtitle_style": "lower-third",
+    "audio_mix_preset": "narration_over_ambient"
+  },
+
+  "deliverables": [
+    {
+      "label": "LinkedIn 16:9 — Final",
+      "path": "output/archon_promo_001/final/archon_promo_001_linkedin_1080p.mp4",
+      "resolution": "1920x1080",
+      "format": "H.264 / AAC 192k",
+      "platform": "linkedin"
+    },
+    {
+      "label": "Instagram Reels 9:16 — Final",
+      "path": "output/archon_promo_001/final/archon_promo_001_instagram_1080x1920.mp4",
+      "resolution": "1080x1920",
+      "format": "H.264 / AAC 128k",
+      "platform": "instagram_reels"
+    },
+    {
+      "label": "Subtitles SRT",
+      "path": "output/archon_promo_001/subtitles/narration.srt",
+      "format": "srt"
+    }
+  ],
+
+  "estimated_render_time_minutes": 4,
+  "estimated_total_cost_usd": 0.423,
+  "budget_cap_usd": 3.00
+}

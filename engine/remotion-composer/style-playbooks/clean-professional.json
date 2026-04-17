@@ -1,0 +1,73 @@
+{
+  "name": "clean-professional",
+  "description": "LinkedIn-ready B2B corporate style — clean typography, muted palette with blue accent, confident motion.",
+
+  "palette": {
+    "primary": "#0A2463",
+    "accent": "#3E92CC",
+    "background": "#FFFFFF",
+    "background_dark": "#05152E",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#B0C4DE",
+    "text_dark": "#1A1A2E",
+    "overlay_bg": "rgba(5, 21, 46, 0.65)"
+  },
+
+  "typography": {
+    "font_family": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    "h1": { "size": 64, "weight": 700, "line_height": 1.15, "letter_spacing": "-0.02em" },
+    "h2": { "size": 44, "weight": 600, "line_height": 1.25, "letter_spacing": "-0.01em" },
+    "body_large": { "size": 32, "weight": 400, "line_height": 1.5, "letter_spacing": "0" },
+    "body": { "size": 24, "weight": 400, "line_height": 1.5 },
+    "cta_url": { "size": 36, "weight": 600, "line_height": 1.2, "letter_spacing": "0.04em" },
+    "subtitle": { "size": 28, "weight": 600, "line_height": 1.4, "letter_spacing": "0.01em" }
+  },
+
+  "motion": {
+    "default_ease": [0.4, 0.0, 0.2, 1.0],
+    "fade_in_frames": 18,
+    "fade_out_frames": 12,
+    "ken_burns_scale_range": [1.0, 1.08],
+    "ken_burns_duration_frames": 360,
+    "transition_overlap_frames": 15
+  },
+
+  "subtitles": {
+    "position": "bottom",
+    "bottom_offset_percent": 12,
+    "max_chars_per_line": 42,
+    "background": "rgba(0, 0, 0, 0.6)",
+    "padding": "8px 16px",
+    "border_radius": 6,
+    "font_size": 28,
+    "font_weight": 600,
+    "color": "#FFFFFF",
+    "outline": "1px solid rgba(255,255,255,0.15)"
+  },
+
+  "text_overlays": {
+    "lower_third": {
+      "position": "bottom-left",
+      "bottom_offset_percent": 18,
+      "left_offset_px": 80,
+      "accent_bar_width": 4,
+      "accent_bar_color": "#3E92CC"
+    },
+    "center": {
+      "position": "center",
+      "text_align": "center"
+    },
+    "cta": {
+      "position": "center",
+      "text_align": "center",
+      "background": "none"
+    }
+  },
+
+  "safe_zones": {
+    "top_percent": 5,
+    "bottom_percent": 5,
+    "left_percent": 5,
+    "right_percent": 5
+  }
+}
