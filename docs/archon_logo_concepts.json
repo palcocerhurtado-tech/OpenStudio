@@ -1,0 +1,70 @@
+{
+  "project": "Archon Consultancies — Logo Redesign",
+  "client": "Archon Consultancies",
+  "location": "Zaragoza, Spain",
+  "tagline": "Automatización inteligente",
+  "generated": "2026-04-20",
+  "tool": "Canva MCP (zero-cost)",
+  "budget_used": "$0.00",
+  "concepts": {
+    "A": {
+      "name": "Arquitectura de datos",
+      "description": "Angular A/arch shape from thin lines and nodes suggesting architecture and data flow. Deep navy #0A2463 + electric blue #3E92CC.",
+      "canva_design_id": "DAHHYfz81DI",
+      "canva_edit_url": "https://www.canva.com/d/qLdmXGbmVAeQlSx",
+      "canva_view_url": "https://www.canva.com/d/SGf1-cpIsGZO4Qj",
+      "exports": {
+        "square_1200x1200": "https://export-download.canva.com/z81DI/DAHHYfz81DI/-1/0/0001-413705963132095092.png",
+        "horizontal_2400x800": "https://export-download.canva.com/z81DI/DAHHYfz81DI/-1/0/0001-6429389163946949433.png"
+      }
+    },
+    "B": {
+      "name": "El arco",
+      "description": "Minimal abstract arch icon — monochrome with warm gold #C9A84C accent. Symbolizes bridging manual work and automation.",
+      "canva_design_id": "DAHHYahsRcM",
+      "canva_edit_url": "https://www.canva.com/d/_YkqG016ZwKhsbx",
+      "canva_view_url": "https://www.canva.com/d/DdbqHHE5uBzBY9R",
+      "exports": {
+        "square_1200x1200": "https://export-download.canva.com/hsRcM/DAHHYahsRcM/-1/0/0001-6950680823459409662.png",
+        "horizontal_2400x800": "https://export-download.canva.com/hsRcM/DAHHYahsRcM/-1/0/0001-4335215339172348271.png"
+      }
+    },
+    "C": {
+      "name": "Circuito preciso",
+      "description": "Tight circuit-board mark — sharp corners, no rounded edges. White + #3E92CC on #0A2463 dark background. Engineering rigor.",
+      "canva_design_id": "DAHHYUJSxHI",
+      "canva_edit_url": "https://www.canva.com/d/_GMGhknuFvrcvqX",
+      "canva_view_url": "https://www.canva.com/d/E6MdxJ7KSrzLo-U",
+      "exports": {
+        "square_1200x1200": "https://export-download.canva.com/JSxHI/DAHHYUJSxHI/-1/0/0001-1287404290071015471.png",
+        "horizontal_2400x800": "https://export-download.canva.com/JSxHI/DAHHYUJSxHI/-1/0/0001-7632976166518867634.png"
+      }
+    },
+    "D": {
+      "name": "Símbolo de autoridad",
+      "description": "Modern flat shield/crest referencing 'archon' (Greek: ruler). Navy + silver #C0C0C0. Contemporary, not heraldic.",
+      "canva_design_id": "DAHHYcdXSeM",
+      "canva_edit_url": "https://www.canva.com/d/1WUifNNvwdibQvX",
+      "canva_view_url": "https://www.canva.com/d/xXa5zkycXRRpz-9",
+      "exports": {
+        "square_1200x1200": "https://export-download.canva.com/dXSeM/DAHHYcdXSeM/-1/0/0001-6432766862196532431.png",
+        "horizontal_2400x800": "https://export-download.canva.com/dXSeM/DAHHYcdXSeM/-1/0/0001-4126923856296669073.png"
+      }
+    }
+  },
+  "comparison_sheet": {
+    "name": "All Concepts — 2x2 Grid",
+    "canva_design_id": "DAHHYdApssU",
+    "canva_edit_url": "https://www.canva.com/d/xP8gz4Z6C9vu_xp",
+    "canva_view_url": "https://www.canva.com/d/ffSl27hwayCKPH7",
+    "exports": {
+      "grid_2400x2400": "https://export-download.canva.com/ApssU/DAHHYdApssU/-1/0/0001-3723851687003464953.png"
+    }
+  },
+  "notes": [
+    "FFmpeg not installed in environment — Canva MCP used as zero-cost alternative.",
+    "All export URLs are time-limited signed S3 links. Re-export via design IDs if links expire.",
+    "Each design is fully editable in Canva via the edit_url.",
+    "Horizontal exports use Canva scale — open in Canva editor to fine-tune composition for header use."
+  ]
+}
