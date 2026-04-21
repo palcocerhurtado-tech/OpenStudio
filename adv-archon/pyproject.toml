@@ -1,0 +1,43 @@
+[project]
+name = "adv-archon"
+version = "0.2.0"
+description = "ADV ARCHON — asistente personal de terminal con Ollama"
+requires-python = ">=3.10"
+dependencies = [
+    "ollama>=0.2.0",
+    "rich>=13.7",
+    "prompt_toolkit>=3.0",
+    "duckduckgo-search>=6.0",
+    "trafilatura>=1.9",
+    "pypdf>=4.0",
+    "requests>=2.31",
+    "tomli>=2.0; python_version < '3.11'",
+    "google-generativeai>=0.5; extra == 'cloud'",
+    "python-docx>=1.1",
+    "openpyxl>=3.1",
+    "python-pptx>=0.6",
+    "pdfplumber>=0.10",
+    "notion-client>=2.2",
+]
+
+[project.optional-dependencies]
+cloud = ["google-generativeai>=0.5"]
+voice = ["faster-whisper>=1.0", "sounddevice>=0.4"]
+memory = ["sentence-transformers>=2.7"]
+
+[project.scripts]
+adv-archon = "adv_archon.main:main"
+adv = "adv_archon.main:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
